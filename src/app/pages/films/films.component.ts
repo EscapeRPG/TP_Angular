@@ -1,32 +1,33 @@
+import {FilmsService} from '../../services/films.service';
+
 declare const UIkit: any;
 
-import {Component, OnInit} from '@angular/core';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {Component, inject, OnInit} from '@angular/core';
 
 @Component({
   standalone: true,
   selector: 'app-films',
-  imports: [HttpClientModule],
+  imports: [],
   templateUrl: './films.component.html',
   styleUrls: ['./films.component.scss']
 })
 export class FilmsComponent implements OnInit {
   movies: any[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private filmsService: FilmsService) {
   }
 
   ngOnInit(): void {
-
     UIkit.modal("#modal-loading").show();
 
     setTimeout(() => {
-      this.http.get<any>('http://localhost:3000/movies') // <-- URL de ton API
-        .subscribe(response => {
-          this.movies = response.data;
-
+      this.filmsService.getMovies().subscribe({
+        next: (json) => {
+          this.movies = json.data;
           UIkit.modal("#modal-loading").hide();
-        });
+        },
+        error: (err) => {}
+      });
     }, 1000);
   }
 }
