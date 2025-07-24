@@ -1,24 +1,26 @@
 <h1>Films</h1>
 
-@for (film of movies; track film) {
-  <div class="card">
-    <img class="cover" src="{{ film.cover }}" alt="cover">
-    <div class="gradient"></div>
-    <div class="info">
-      <h2>{{ film.title }}</h2>
-      <h3>{{ film.year }}, {{ film.author }}</h3>
-      <div class="duration">{{ film.duration }} min</div>
-      <div class="rating">
-        @for (i of [1, 2, 3, 4, 5]; track i) {
-          @if (i <= film.rating) {
-            <i class="fa-solid fa-star"></i>
-          } @else {
-            <i class="fa-regular fa-star"></i>
+<div class="card-container">
+  @for (film of movies; track film) {
+    <div class="card">
+      <img class="cover" src="{{ film.cover }}" alt="cover">
+      <div class="gradient"></div>
+      <div class="info">
+        <h2>{{ film.title }}</h2>
+        <h3>{{ film.year }}, {{ film.author }}</h3>
+        <div class="duration">{{ film.duration }} min</div>
+        <div class="rating">
+          @for (i of [1, 2, 3, 4, 5]; track i) {
+            @if (i <= film.rating) {
+              <i class="fa-solid fa-star"></i>
+            } @else {
+              <i class="fa-regular fa-star"></i>
+            }
           }
-        }
+        </div>
+        <div class="genre">{{ film.genre }}</div>
+        <p>{{ film.synopsis }}</p>
       </div>
-      <div class="genre">{{ film.genre }}</div>
-      <p>{{ film.synopsis }}</p>
     </div>
-  </div>
-}
+  }
+</div>
