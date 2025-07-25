@@ -3,13 +3,14 @@ import {FilmsService} from '../../services/films.service';
 declare const UIkit: any;
 
 import {Component, inject, OnInit} from '@angular/core';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   standalone: true,
   selector: 'app-films',
-  imports: [],
+  imports: [TranslatePipe],
   templateUrl: './films.component.html',
-  styleUrls: ['./films.component.scss']
+  styleUrl: './films.component.scss'
 })
 export class FilmsComponent implements OnInit {
   movies: any[] = [];
