@@ -1,4 +1,8 @@
 {
+  "btn.language": "Français",
   "title.login": "Login",
-  "btn.login": "Log in"
+  "btn.login": "Log in",
+  "title.movies": "Movies",
+  "user.name": "Your name",
+  "user.pass": "Your password"
 }

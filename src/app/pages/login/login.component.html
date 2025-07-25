@@ -1,4 +1,6 @@
-<form action="" method="post">
+<form action="" method="post" class="login-form">
   <legend class="uk-legend">{{ 'title.login' | translate }}</legend>
-
+  <input type="text" name="name" id="name" placeholder="{{ 'user.name' | translate }}">
+  <input type="password" name="pass" id="pass" placeholder="{{ 'user.pass' | translate }}">
+  <button type="submit">{{ 'btn.login' | translate }}</button>
 </form>
